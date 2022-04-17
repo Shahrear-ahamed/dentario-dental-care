@@ -41,20 +41,23 @@ const ForgetPassword = () => {
     }
   };
   return (
-    <section className="container min-height my-3 d-flex flex-column align-items-center">
-      <h2>Forget Password?</h2>
+    <section className="container min-height my-3">
+      <h2 className="text-center">Forget Password?</h2>
       <Form
         autoComplete="off"
         onSubmit={handleForgetPassword}
-        style={{ maxWidth: "400px" }}
-        className="mt-4 px-4 px-sm-0 w-auto"
+        style={{ maxWidth: "450px" }}
+        className="mt-5 px-4 px-sm-0 mx-auto"
       >
         <Form.Group className="mb-3" controlId="formGroupEmail">
           <Form.Control name="email" type="email" placeholder="Email" />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Update Password
-        </Button>
+        <div className="d-flex justify-content-center">
+          {" "}
+          <Button variant="primary" type="submit">
+            Update Password
+          </Button>
+        </div>
       </Form>
       <ToastContainer />
     </section>

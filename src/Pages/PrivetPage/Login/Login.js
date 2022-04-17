@@ -40,12 +40,13 @@ const Login = () => {
     }
   };
   return (
-    <section className="container min-height my-3 d-flex flex-column align-items-center">
-      <h2>Login</h2>
+    <section className="container min-height my-3">
+      <h2 className="text-center">Login</h2>
       <Form
         autoComplete="off"
         onSubmit={handleLoginAccount}
-        className="mt-4 px-4 w-auto px-sm-0"
+        style={{ maxWidth: "450px" }}
+        className="mt-5 px-4 px-sm-0 mx-auto"
       >
         <Form.Group className="mb-3" controlId="formGroupEmail">
           <Form.Control name="email" type="email" placeholder="Email" />
@@ -63,13 +64,14 @@ const Login = () => {
               className="my-3 text-black text-decoration-none d-block"
               to="/forget-password"
             >
-              Forget Password?{" "}
+              Forget Password ?{" "}
             </Link>
           </small>
         </p>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+          {" "}
+          <Button variant="primary" type="submit">
+            Login
+          </Button>
       </Form>
       <p className="text-center">
         <small>
@@ -77,7 +79,7 @@ const Login = () => {
             className="my-3 text-black text-decoration-none d-block"
             to="/register"
           >
-            New to Dentario?{" "}
+            New to Dentario ?{" "}
           </Link>
         </small>
       </p>

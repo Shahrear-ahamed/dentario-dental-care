@@ -55,12 +55,13 @@ const Register = () => {
     }
   };
   return (
-    <section className="container min-height my-3 d-flex flex-column align-items-center">
+    <section className="container min-height my-3">
       <h2>Register</h2>
       <Form
         autoComplete="off"
         onSubmit={handleCreateAccount}
-        className="mt-4 px-4 px-sm-0 w-auto"
+        style={{ maxWidth: "450px" }}
+        className="mt-5 px-4 px-sm-0 mx-auto"
       >
         <Form.Group className="mb-3" controlId="formGroupName">
           <Form.Control name="name" type="text" placeholder="Name" />
@@ -89,9 +90,13 @@ const Register = () => {
             label="Agree with Terms and condition"
           />
         </Form.Group>
-        <Button disabled={agree ? false : true} variant="primary" type="submit">
-          Submit
-        </Button>
+          <Button
+            disabled={agree ? false : true}
+            variant="primary"
+            type="submit"
+          >
+            Submit
+          </Button>
       </Form>
       <p className="text-center">
         <small>
