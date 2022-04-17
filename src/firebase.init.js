@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-
 const firebaseConfig = {
   apiKey: "AIzaSyDF7k5S5pmc6e1Oi4UzzNjY86Gu9Gim964",
   authDomain: "dentario-dental-care.firebaseapp.com",
