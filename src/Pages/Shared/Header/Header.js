@@ -1,12 +1,13 @@
 import React from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import logo from "../../Assets/photos/logo/logo.png";
+import logo from "../../../Assets/photos/logo/logo.png";
+import "./Header.css";
 
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <>
+    <header>
       <Navbar className="shadow-sm">
         <Container>
           <Navbar.Brand onClick={() => navigate("/")} className="mouse">
@@ -26,7 +27,7 @@ const Header = () => {
           </div>
         </Container>
       </Navbar>
-    </>
+    </header>
   );
 };
 
