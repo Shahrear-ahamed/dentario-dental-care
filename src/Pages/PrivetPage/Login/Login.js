@@ -6,7 +6,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import auth from "../../firebase.init";
+import auth from "../../../firebase.init";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -40,12 +40,12 @@ const Login = () => {
     }
   };
   return (
-    <section className="container min-height my-3 w-75 d-flex flex-column align-items-center">
-      <h2>Register</h2>
+    <section className="container min-height my-3 d-flex flex-column align-items-center">
+      <h2>Login</h2>
       <Form
         autoComplete="off"
         onSubmit={handleLoginAccount}
-        className="mt-4 px-4 px-sm-0 w-50"
+        className="mt-4 px-4 w-auto px-sm-0"
       >
         <Form.Group className="mb-3" controlId="formGroupEmail">
           <Form.Control name="email" type="email" placeholder="Email" />
@@ -71,7 +71,7 @@ const Login = () => {
           Submit
         </Button>
       </Form>
-      <p>
+      <p className="text-center">
         <small>
           <Link
             className="my-3 text-black text-decoration-none d-block"

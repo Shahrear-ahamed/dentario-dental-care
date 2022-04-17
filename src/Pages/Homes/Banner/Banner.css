@@ -1,0 +1,32 @@
+.banner-container {
+  background: rgba(0, 0, 0, 0.4)
+    url("../../../Assets/photos/banner/patient-banner.jpg");
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.banner-title {
+  font-size: 48px;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .banner-title {
+    font-size: 30px;
+  }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+  .banner-title {
+    font-size: 30px;
+  }
+}
+@media (max-width: 576px) {
+  .banner-title {
+    font-size: 25px;
+  }
+  .banner-para {
+    font-size: 14px;
+  }
+}

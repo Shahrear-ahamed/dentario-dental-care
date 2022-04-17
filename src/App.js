@@ -4,11 +4,11 @@ import Header from "./Pages/Shared/Header/Header";
 import Footer from "./Pages/Shared/Footer/Footer";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Homes/Home/Home";
-import Login from "./Pages/Login/Login";
-import Register from "./Pages/Register/Register";
 import PageNotFound from "./Pages/Shared/PageNotFound/PageNotFound";
-import Blog from "./Pages/Homes/Home/Blog/Blog";
-import ForgetPassword from "./Pages/ForgetPassword/ForgetPassword";
+import Login from "./Pages/PrivetPage/Login/Login";
+import Register from "./Pages/PrivetPage/Register/Register";
+import ForgetPassword from "./Pages/PrivetPage/ForgetPassword/ForgetPassword";
+import Blog from "./Pages/Blog/Blog";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {

@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import Banner from "../Banner/Banner";
+import Services from "../Services/Services";
+import "./Home.css";
 
 const Home = () => {
-    return (
-        <div>
-            <h2>Its home</h2>
-        </div>
-    );
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    fetch(
+      "https://shahrear-ahamed.github.io/fetch-api/dentario-dental-care.json"
+    )
+      .then((res) => res.json())
+      .then((data) => setServices(data));
+  }, []);
+  return (
+    <section>
+      <Banner />
+      <Services services={services} />
+    </section>
+  );
 };
 
 export default Home;

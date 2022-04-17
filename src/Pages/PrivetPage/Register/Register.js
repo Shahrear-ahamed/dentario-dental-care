@@ -4,9 +4,10 @@ import "./Register.css";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
+import auth from "../../../firebase.init";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -18,6 +19,9 @@ const Register = () => {
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile] = useUpdateProfile(auth);
   const [user] = useAuthState(auth);
+  const [sendEmailVerification] = useSendEmailVerification(auth);
+
+  // error toast
   const notifyError = (data) => toast.error(data);
 
   const handleCreateAccount = async (e) => {
@@ -38,6 +42,7 @@ const Register = () => {
     if (password === confirmPassword) {
       await createUserWithEmailAndPassword(email, password);
       await updateProfile({ displayName: name });
+      await sendEmailVerification(email);
 
       // after send data check error and or not go home
       if (error) {
@@ -50,12 +55,12 @@ const Register = () => {
     }
   };
   return (
-    <section className="container min-height my-3 w-75 d-flex flex-column align-items-center">
+    <section className="container min-height my-3 d-flex flex-column align-items-center">
       <h2>Register</h2>
       <Form
         autoComplete="off"
         onSubmit={handleCreateAccount}
-        className="mt-4 px-4 px-sm-0 w-50"
+        className="mt-4 px-4 px-sm-0 w-auto"
       >
         <Form.Group className="mb-3" controlId="formGroupName">
           <Form.Control name="name" type="text" placeholder="Name" />
@@ -88,7 +93,7 @@ const Register = () => {
           Submit
         </Button>
       </Form>
-      <p>
+      <p className="text-center">
         <small>
           <Link
             className="my-3 text-black text-decoration-none d-block"

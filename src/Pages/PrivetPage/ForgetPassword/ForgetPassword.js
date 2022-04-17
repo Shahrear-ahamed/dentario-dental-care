@@ -5,7 +5,7 @@ import {
   useSendPasswordResetEmail,
 } from "react-firebase-hooks/auth";
 import { toast, ToastContainer } from "react-toastify";
-import auth from "../../firebase.init";
+import auth from "../../../firebase.init";
 
 const ForgetPassword = () => {
   const [sendPasswordResetEmail, , error] = useSendPasswordResetEmail(auth);
@@ -13,11 +13,17 @@ const ForgetPassword = () => {
   // toast send from here
   const toastSucess = (data) => toast.success(data);
   const toastError = (data) => toast.error(data);
+
   // forget password form
   const handleForgetPassword = (e) => {
     e.preventDefault();
+
     // get email
     const email = e.target.email.value;
+
+    if (!email) {
+      return toastError("Input field are empty");
+    }
 
     // user loged in or not
     if (user) {
@@ -35,18 +41,19 @@ const ForgetPassword = () => {
     }
   };
   return (
-    <section className="container min-height my-3 w-75 d-flex flex-column align-items-center">
-      <h2>Register</h2>
+    <section className="container min-height my-3 d-flex flex-column align-items-center">
+      <h2>Forget Password?</h2>
       <Form
         autoComplete="off"
         onSubmit={handleForgetPassword}
-        className="mt-4 px-4 px-sm-0 w-50"
+        style={{ maxWidth: "400px" }}
+        className="mt-4 px-4 px-sm-0 w-auto"
       >
         <Form.Group className="mb-3" controlId="formGroupEmail">
           <Form.Control name="email" type="email" placeholder="Email" />
         </Form.Group>
         <Button variant="primary" type="submit">
-          Update Email
+          Update Password
         </Button>
       </Form>
       <ToastContainer />
