@@ -35,7 +35,7 @@ const Register = () => {
 
     // check user log in or not
     if (user) {
-      return notifyError("Your are log in");
+      return notifyError("Your are log in. You can not create account");
     }
 
     // check both password are same or not
@@ -43,17 +43,17 @@ const Register = () => {
       await createUserWithEmailAndPassword(email, password);
       await updateProfile({ displayName: name });
       await sendEmailVerification(email);
-
-      // after send data check error and or not go home
-      if (error) {
-        return notifyError(error.message);
-      } else {
-        navigate("/");
-      }
+      navigate("/");
     } else {
-      return notifyError("password not match");
+      notifyError("password not match");
     }
   };
+
+  // after send data check error and or not go home
+  if (error) {
+    notifyError(error.message);
+  }
+
   return (
     <section className="container min-height my-3">
       <h2 className="text-center">Register</h2>

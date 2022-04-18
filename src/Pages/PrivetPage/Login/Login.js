@@ -4,19 +4,23 @@ import {
   useAuthState,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../../firebase.init";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  // firebase
   const [signInWithEmailAndPassword, , , error] =
     useSignInWithEmailAndPassword(auth);
   const [user] = useAuthState(auth);
   const notifyError = (data) => toast.error(data);
 
   // login system
-  const handleLoginAccount = (e) => {
+  const handleLoginAccount = async (e) => {
     // page load prevent
     e.preventDefault();
 
@@ -24,22 +28,31 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    // empty field validation
+    if (email && !password) {
+      return notifyError("Please input password");
+    } else if (!email && password) {
+      return notifyError("Please input Email");
+    } else if (!email || !password) {
+      return notifyError("Please input email and password");
+    }
+
     // check is user login or not
     if (!user) {
-      signInWithEmailAndPassword(email, password);
-
-      // if user input wrong data or fail to login
-      if (error) {
-        notifyError(error.message);
-      } else {
-        navigate("/");
-      }
+      await signInWithEmailAndPassword(email, password);
+      navigate(from, { replace: true });
     } else {
       notifyError("You are already log in 🤦‍♂️");
       return;
     }
   };
-  console.log(error);
+
+  // if user input wrong data or fail to login
+  if (error) {
+    notifyError(error.message);
+  }
+
+  // return component are hre
   return (
     <section className="container min-height my-3">
       <h2 className="text-center">Login</h2>

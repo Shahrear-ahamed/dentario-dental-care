@@ -6,7 +6,7 @@ const SingleService = ({ props }) => {
   const navigate = useNavigate();
   const { desc, name, price, img } = props;
   return (
-    <div className="col-12 col-sm-6 col-lg-4 px-0">
+    <div className="col-12 col-sm-6 col-lg-4 px-1">
       <Card>
         <Card.Img
           variant="top"
