@@ -4,10 +4,12 @@ import google from "../../../Assets/photos/logo/google-logo.png";
 import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [signInWithGoogle, user, , error] = useSignInWithGoogle(auth);
   const [alreadyUser] = useAuthState(auth);
 
@@ -20,7 +22,7 @@ const SocialLogin = () => {
   }
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate(from, { replace: true });
     }
   });
 
