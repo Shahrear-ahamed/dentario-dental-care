@@ -42,12 +42,22 @@ const Header = () => {
               {user ? (
                 <NavDropdown
                   title={user.displayName ? user.displayName : "User"}
+                  img="/sara"
                   id="basic-nav-dropdown"
                 >
-                  <p>{user?.email}</p>
+                  <p className="mb-0 my-1">
+                    <small>{user?.email}</small>
+                  </p>
                   <button
                     style={{ background: "transparent" }}
-                    className="border-0"
+                    className="border-0 my-1 text-start w-100"
+                    onClick={() => navigate("/checkout")}
+                  >
+                    CheckOut Now
+                  </button>
+                  <button
+                    style={{ background: "transparent" }}
+                    className="border-0 my-1 text-start w-100"
                     onClick={() => signOut(auth)}
                   >
                     Log out
