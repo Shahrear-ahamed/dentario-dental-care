@@ -23,15 +23,9 @@ const Footer = () => {
           >
             Register
           </Link>
-          <Link
-            className="d-block text-decoration-none text-white"
-            to="/service"
-          >
-            Service
-          </Link>
         </div>
       </div>
-      <div className="text-center text-white py-4 align-center border-white border-top">
+      <div className="text-center text-white py-4 align-center border-light border-top">
         <p className="mb-0">
           <small>Copyright &copy; {year} Dentario Dental Care</small>
         </p>

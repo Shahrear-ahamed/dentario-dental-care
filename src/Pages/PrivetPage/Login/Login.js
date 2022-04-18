@@ -39,6 +39,7 @@ const Login = () => {
       return;
     }
   };
+  console.log(error);
   return (
     <section className="container min-height my-3">
       <h2 className="text-center">Login</h2>
