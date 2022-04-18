@@ -10,6 +10,7 @@ import {
 import auth from "../../../firebase.init";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
   const [agree, setAgree] = useState(false);
@@ -111,6 +112,7 @@ const Register = () => {
           </Link>
         </small>
       </p>
+      <SocialLogin />
       <ToastContainer />
     </section>
   );
