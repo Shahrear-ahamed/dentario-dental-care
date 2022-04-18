@@ -24,6 +24,11 @@ const Register = () => {
   // error toast
   const notifyError = (data) => toast.error(data);
 
+  // after send data check error and or not go home
+  if (error) {
+    notifyError(error.message);
+  }
+
   const handleCreateAccount = async (e) => {
     // page load prevent
     e.preventDefault();
@@ -48,11 +53,6 @@ const Register = () => {
       notifyError("password not match");
     }
   };
-
-  // after send data check error and or not go home
-  if (error) {
-    notifyError(error.message);
-  }
 
   return (
     <section className="container min-height my-3">

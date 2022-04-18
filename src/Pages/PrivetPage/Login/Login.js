@@ -14,10 +14,19 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
 
   // firebase
-  const [signInWithEmailAndPassword, , , error] =
+  const [signInWithEmailAndPassword, loginUser, , error] =
     useSignInWithEmailAndPassword(auth);
   const [user] = useAuthState(auth);
   const notifyError = (data) => toast.error(data);
+
+  if (loginUser) {
+    navigate(from, { replace: true });
+  }
+
+  // if user input wrong data or fail to login
+  if (error) {
+    notifyError(error.message);
+  }
 
   // login system
   const handleLoginAccount = async (e) => {
@@ -40,17 +49,11 @@ const Login = () => {
     // check is user login or not
     if (!user) {
       await signInWithEmailAndPassword(email, password);
-      navigate(from, { replace: true });
     } else {
       notifyError("You are already log in 🤦‍♂️");
       return;
     }
   };
-
-  // if user input wrong data or fail to login
-  if (error) {
-    notifyError(error.message);
-  }
 
   // return component are hre
   return (
