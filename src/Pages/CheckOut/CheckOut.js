@@ -1,29 +1,67 @@
 import React from "react";
 import { Button, Form, Row } from "react-bootstrap";
+import { toast, ToastContainer } from "react-toastify";
 
 const CheckOut = () => {
+  const checkOutNow = (e) => {
+    e.preventDefault();
+
+    // get data
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const number = e.target.number.value;
+    const message = e.target.message.value;
+
+    // error
+    const notifyError = (data) => toast.error(data);
+    const toastSuccess = (data) => toast.success(data);
+
+    // send data
+    if (name && email && number && message) {
+      toastSuccess("Booked Your serial, We will call you leter");
+    } else {
+      notifyError("Please enter all data");
+    }
+
+  };
+
   return (
     <section className="div-size container">
       <div style={{ maxWidth: "900px" }} className="my-5 mx-auto">
         <h2 className="text-center">Check out now</h2>
         <div className="bar"></div>
-        <Form className="mt-4">
+        <Form onSubmit={checkOutNow} className="mt-4">
           <Row className="mb-3">
             <Form.Group className="col" controlId="formGridEmail">
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Name" />
+              <Form.Control
+                name="name"
+                type="text"
+                placeholder="Name"
+                required
+              />
             </Form.Group>
 
             <Form.Group className="col" controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="email" />
+              <Form.Control
+                name="email"
+                type="email"
+                placeholder="email"
+                required
+              />
             </Form.Group>
           </Row>
 
           <Row className="mb-3">
             <Form.Group className="col" controlId="formGridEmail">
               <Form.Label>Mobile</Form.Label>
-              <Form.Control type="number" placeholder="Mobile" />
+              <Form.Control
+                name="number"
+                type="number"
+                placeholder="Mobile"
+                required
+              />
             </Form.Group>
 
             <Form.Group className="col" controlId="formGridState">
@@ -44,18 +82,21 @@ const CheckOut = () => {
               style={{ resize: "none" }}
               as="textarea"
               rows={5}
+              name="message"
               placeholder="Write your problem in detai"
+              required
             />
           </Form.Group>
 
           <div className="d-flex justify-content-center">
             {" "}
             <Button variant="primary" type="submit">
-              Get Consultation
+              Book Now
             </Button>
           </div>
         </Form>
       </div>
+      <ToastContainer />
     </section>
   );
 };
