@@ -1,10 +1,13 @@
-.error-font{
-    font-size: 150px;
-    color: rgb(219, 219, 219);
+.error-font {
+  font-size: 150px;
+  color: rgb(219, 219, 219);
+}
+.error-text {
+  width: 300px;
 }
 
-@media (max-width:576px) {
-    .error-font{
-        font-size: 90px;
-    }
+@media (max-width: 576px) {
+  .error-font {
+    font-size: 90px;
+  }
 }

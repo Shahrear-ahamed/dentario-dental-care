@@ -4,12 +4,12 @@ import "./Consultation.css";
 
 const Consultation = () => {
   return (
-    <div className="my-5">
-      <div className="container mb-4">
+    <div id="appointment" className="consultation py-5">
+      <div className="container text-white mb-4">
         <h2 className="text-center">Request a Consultation</h2>
         <div className="bar"></div>
         <div style={{ maxWidth: "900px" }} className="my-5 mx-auto">
-          <Form>
+          <Form className=" form-transperent">
             <Row className="mb-3">
               <Form.Group className="col" controlId="formGridEmail">
                 <Form.Label>Name</Form.Label>
@@ -46,7 +46,7 @@ const Consultation = () => {
               <Form.Control
                 style={{ resize: "none" }}
                 as="textarea"
-                rows={4}
+                rows={5}
                 placeholder="Message"
               />
             </Form.Group>

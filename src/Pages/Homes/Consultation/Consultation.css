@@ -1,6 +1,29 @@
+.consultation {
+  background: rgba(0, 0, 0, 0.5)
+    url("../../../Assets/photos/banner/appointment-banner.jpg");
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .bar {
   width: 70px;
-  height: 4px;
+  height: 3px;
   margin: 0 auto;
   background-color: #0d6efd;
+}
+
+.form-transperent input,
+.form-transperent textarea,
+.form-transperent select {
+  color: white;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.form-transperent input:focus,
+.form-transperent textarea:focus,
+.form-transperent select:focus {
+  color: white;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.4);
 }

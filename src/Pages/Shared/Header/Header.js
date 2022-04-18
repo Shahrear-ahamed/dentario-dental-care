@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../Assets/photos/logo/logo.png";
@@ -35,7 +30,8 @@ const Header = () => {
               <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link href="#services">Services</Nav.Link>
+              <Nav.Link href="#appointment">Appointment</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link as={Link} to="/blog">

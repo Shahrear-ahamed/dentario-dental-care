@@ -56,7 +56,8 @@ const Register = () => {
   };
   return (
     <section className="container min-height my-3">
-      <h2>Register</h2>
+      <h2 className="text-center">Register</h2>
+      <div className="bar"></div>
       <Form
         autoComplete="off"
         onSubmit={handleCreateAccount}
@@ -90,18 +91,14 @@ const Register = () => {
             label="Agree with Terms and condition"
           />
         </Form.Group>
-          <Button
-            disabled={agree ? false : true}
-            variant="primary"
-            type="submit"
-          >
-            Submit
-          </Button>
+        <Button disabled={agree ? false : true} variant="primary" type="submit">
+          Submit
+        </Button>
       </Form>
       <p className="text-center">
         <small>
           <Link
-            className="my-3 text-black text-decoration-none d-block"
+            className="my-3 text-primary text-decoration-none d-block"
             to="/login"
           >
             Already have an account?{" "}

@@ -42,6 +42,7 @@ const Login = () => {
   return (
     <section className="container min-height my-3">
       <h2 className="text-center">Login</h2>
+      <div className="bar"></div>
       <Form
         autoComplete="off"
         onSubmit={handleLoginAccount}
@@ -61,25 +62,24 @@ const Login = () => {
         <p>
           <small>
             <Link
-              className="my-3 text-black text-decoration-none d-block"
+              className="my-3 text-primary text-decoration-none d-block"
               to="/forget-password"
             >
               Forget Password ?{" "}
             </Link>
           </small>
-        </p>
-          {" "}
-          <Button variant="primary" type="submit">
-            Login
-          </Button>
+        </p>{" "}
+        <Button variant="primary" type="submit">
+          Login
+        </Button>
       </Form>
       <p className="text-center">
         <small>
           <Link
-            className="my-3 text-black text-decoration-none d-block"
+            className="my-3 text-primary  text-decoration-none d-block"
             to="/register"
           >
-            New to Dentario ?{" "}
+            Don't have an account?{" "}
           </Link>
         </small>
       </p>

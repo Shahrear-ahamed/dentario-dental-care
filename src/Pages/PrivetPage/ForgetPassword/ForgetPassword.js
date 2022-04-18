@@ -4,10 +4,12 @@ import {
   useAuthState,
   useSendPasswordResetEmail,
 } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../../firebase.init";
 
 const ForgetPassword = () => {
+  const navigate = useNavigate()
   const [sendPasswordResetEmail, , error] = useSendPasswordResetEmail(auth);
   const [user] = useAuthState(auth);
   // toast send from here
@@ -43,6 +45,7 @@ const ForgetPassword = () => {
   return (
     <section className="container min-height my-3">
       <h2 className="text-center">Forget Password?</h2>
+      <div className="bar"></div>
       <Form
         autoComplete="off"
         onSubmit={handleForgetPassword}
@@ -57,6 +60,12 @@ const ForgetPassword = () => {
           <Button variant="primary" type="submit">
             Update Password
           </Button>
+          <button
+            onClick={() => navigate("/login")}
+            className="btn btn-primary ms-3"
+          >
+            Login Page
+          </button>
         </div>
       </Form>
       <ToastContainer />
