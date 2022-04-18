@@ -23,7 +23,6 @@ const Register = () => {
 
   // error toast
   const notifyError = (data) => toast.error(data);
-
   // after send data check error and or not go home
   if (error) {
     notifyError(error.message);
@@ -48,7 +47,7 @@ const Register = () => {
       await createUserWithEmailAndPassword(email, password);
       await updateProfile({ displayName: name });
       await sendEmailVerification(email);
-      navigate("/");
+      await navigate("/");
     } else {
       notifyError("password not match");
     }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import {
   useAuthState,
@@ -19,9 +19,11 @@ const Login = () => {
   const [user] = useAuthState(auth);
   const notifyError = (data) => toast.error(data);
 
-  if (loginUser) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (loginUser) {
+      navigate(from, { replace: true });
+    }
+  });
 
   // if user input wrong data or fail to login
   if (error) {
