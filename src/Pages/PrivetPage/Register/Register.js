@@ -64,16 +64,22 @@ const Register = () => {
         className="mt-5 px-4 px-sm-0 mx-auto"
       >
         <Form.Group className="mb-3" controlId="formGroupName">
-          <Form.Control name="name" type="text" placeholder="Name" />
+          <Form.Control name="name" type="text" placeholder="Name" required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formGroupEmail">
-          <Form.Control name="email" type="email" placeholder="Email" />
+          <Form.Control
+            name="email"
+            type="email"
+            placeholder="Email"
+            required
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formGroupPassword">
           <Form.Control
             name="password"
             type="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formGroupConfirmPassword">
@@ -81,6 +87,7 @@ const Register = () => {
             name="confirmPassword"
             type="password"
             placeholder="Confirm Password"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
